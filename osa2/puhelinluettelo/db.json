@@ -1,0 +1,49 @@
+{
+  "persons": [
+    {
+      "id": 3,
+      "name": "Iiro Hellas",
+      "phone": "044 000 0002"
+    },
+    {
+      "id": 4,
+      "name": "Eero Hellas",
+      "phone": "044 000 0003"
+    },
+    {
+      "id": 6,
+      "name": "Ada Lovelace",
+      "phone": "09 532 3523"
+    },
+    {
+      "id": 7,
+      "name": "Dan Abramov",
+      "phone": "050 123 4345"
+    },
+    {
+      "id": 8,
+      "name": "Mary Poppendieck",
+      "phone": "044 642 3122"
+    },
+    {
+      "name": "Kalle Malli",
+      "phone": "010 001 0001",
+      "id": 9
+    },
+    {
+      "name": "Malli Mallinen",
+      "phone": "010 002 0002",
+      "id": 10
+    },
+    {
+      "name": "Tero Mallinen",
+      "phone": "010 001 0004",
+      "id": 12
+    },
+    {
+      "name": "Pirjo Mallinen",
+      "phone": "010 001 0005",
+      "id": 13
+    }
+  ]
+}
