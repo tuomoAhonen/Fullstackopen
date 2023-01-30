@@ -3,6 +3,7 @@ import personService from './services/personService';
 import PersonsToShow from './components/PersonsToShow';
 import Form from './components/Form';
 import PersonFinder from './components/PersonFinder';
+import Notification from './components/Notification';
 
 /* 
   In React and jsx `` are for concatenation and '' or "" are for strings.
@@ -19,17 +20,33 @@ const App = () => {
   const [newPerson, setNewPerson] = useState({name: '', phone: ''});
   const [editPerson, setEditPerson] = useState({name: '', phone: ''});
   const [string, setString] = useState('');
-  const [clickedId, setClickedId] = useState();
+  const [clickedId, setClickedId] = useState(null);
+  const [message, setMessage] = useState(null);
+  const [types] = useState({success: 'success', error: 'error'});
+
+  const messageSetter = (msg, msgtype) => {
+    setMessage({msg, msgtype});
+    setTimeout(() => {
+      setMessage(null);
+    }, 5000)
+  }
 
   const dbhook = () => {
     personService
       .getAll()
-      .then(response => {
-        setPersons(response);
-      });
+      .then(response => setPersons(response))
+      .catch(e => {
+        return (
+          messageSetter(`Couldn't reload/find database.\nCheck your browser's developer console for the error.`, types.error), 
+          console.log(e)
+        );
+    });
+      /* Very simple way to handle the error.
+      .catch(e => messageSetter(`Couldn't reload/find database.\nError: ${e}`)); 
+      */
   };
 
-  useEffect(dbhook, []);
+  useEffect(dbhook, [types]);
 
   const inputChanged = (e) => {
     setNewPerson({...newPerson, [e.target.name]: e.target.value});
@@ -50,26 +67,48 @@ const App = () => {
           if (window.confirm(`${newPerson.name} is already on the phonebook.\nDo you want to replace ${personFound.name}'s old number with the new one?`)) {
             //console.log(person);
             personService
-              .updatePerson(personFound.id, newPerson);
+              .updatePerson(personFound.id, newPerson)
+              .then(messageSetter(`${newPerson.name}'s phone number has been updated.`, types.success))
+              .catch(e => {
+                return (
+                messageSetter(`There was error on updating the phone number.\nCheck your browser's developer console for the error.`, types.error),
+                console.log(e)
+                );
+              });
             dbhook();
             setNewPerson({name: '', phone: ''});
           };
         } else {
-          window.alert(`${newPerson.name} is already on the phonebook with matching information.`);
-          setNewPerson({name: '', phone: ''});
+          if (window.confirm(`${newPerson.name} is already on the phonebook with matching information.`)) {
+            setNewPerson({name: '', phone: ''});
+          }
         }
       // eslint-disable-next-line
       } else if (personFound = persons.find(person => person.phone === newPerson.phone)) {
         if (window.confirm(`${newPerson.phone} is already added to ${personFound.name}.\nDo you want to replace ${personFound.name}'s name with the new one?`)) {
           personService
-            .updatePerson(personFound.id, newPerson);
+            .updatePerson(personFound.id, newPerson)
+            .then(messageSetter(`${personFound.name}'s name has been changed to ${newPerson.name}.`, types.success))
+            .catch(e => {
+              return (
+                messageSetter(`There was an error on updating the name.\nCheck your browser's developer console for the error.`, types.error),
+                console.log(e)
+              );
+            });
           dbhook();
           setNewPerson({name: '', phone: ''});
         };
       } else {
         //console.log(newPerson);
         personService
-          .createPerson(newPerson);
+          .createPerson(newPerson)
+          .then(messageSetter(`${newPerson.name} has been successfully added to your phonebook.`, types.success))
+          .catch(e => {
+            return (
+              messageSetter(`There was an error, try again.\nCheck your browser's developer console for the error.`, types.error),
+              console.log(e)
+            );
+          });
         dbhook();
         setNewPerson({name: '', phone: ''});
         /*setPersons([...persons, {name: newPerson.name, phone: newPerson.phone}]);
@@ -88,7 +127,14 @@ const App = () => {
 
     if (window.confirm(`Delete ${personToDelete.name}?`)) {
       personService
-        .deletePerson(id);
+        .deletePerson(id)
+        .then(messageSetter(`${personToDelete.name} has been deleted.`, types.success))
+        .catch(e => {
+          return (
+            messageSetter(`Couldn't find ${personToDelete.name} to delete from your phonebook,\nbecause it was already deleted by someone else.\nCheck your browser's developer console for the error.`, types.error), 
+            console.log(e)
+          )
+        });
       dbhook();
     }
   }
@@ -105,16 +151,23 @@ const App = () => {
 
   const saveEdit = () => {
     personService
-      .updatePerson(clickedId, editPerson);
+      .updatePerson(clickedId, editPerson)
+      .then(messageSetter(`${editPerson.name}'s information has been changed.`, types.success))
+      .catch(e => {
+        return (
+          messageSetter(`Couldn't save the changes you made, try again.\nCheck your browser's developer console for the error.`, types.error),
+          console.log(e)
+        );
+      });
     dbhook();
     setEditPerson({name: '', phone: ''});
-    setClickedId();
+    setClickedId(null);
   };
 
   const undoEdit = () => {
     dbhook();
     setEditPerson({name: '', phone: ''});
-    setClickedId();
+    setClickedId(null);
   }
 
   /*
@@ -139,7 +192,18 @@ const App = () => {
       <h1>Numbers</h1>
       <p>Click on name or phone number to edit row...</p>
       <PersonFinder stringchanged={stringChanged} string={string} />
-      <PersonsToShow persons={persons} string={string} onclick={deletePerson} edit={editRow} undoedit={undoEdit} clickedid={clickedId} editperson={editPerson} editinputchanged={editInputChanged} saveedit={saveEdit} />
+      <PersonsToShow 
+        persons={persons} 
+        string={string} 
+        onclick={deletePerson} 
+        edit={editRow} 
+        undoedit={undoEdit} 
+        clickedid={clickedId} 
+        editperson={editPerson} 
+        editinputchanged={editInputChanged} 
+        saveedit={saveEdit} 
+      />
+      <Notification message={message} />
       {/* Tämä osuus omaksi komponentiksi
         string ?
         persons.filter(person => person.name.toLowerCase().includes(string.toLowerCase()))

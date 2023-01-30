@@ -2,7 +2,17 @@ import SearchFromArrayWithObjects from './SearchFromArrayWithObjects';
 import Button from './Button';
 import Input from './Input';
 
-const PersonsFound = ({persons, string, onclick, edit, undoedit, clickedid, editperson, editinputchanged, saveedit}) => SearchFromArrayWithObjects(string, persons, "name")
+const PersonsFound = ({
+  persons, 
+  string, 
+  onclick, 
+  edit, 
+  undoedit, 
+  clickedid, 
+  editperson, 
+  editinputchanged, 
+  saveedit
+}) => SearchFromArrayWithObjects(string, persons, "name")
   .map((person, index) => {
     if (clickedid) {
       if (person.id === clickedid) {

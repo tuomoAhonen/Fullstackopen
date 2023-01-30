@@ -5,26 +5,20 @@ const dburl = 'http://localhost:3001/persons';
 const getAll = () => 
   axios
     .get(dburl)
-    .then(response => response.data)
-    .catch(e => console.log(e));
+    .then(response => response.data);
 
 const createPerson = (newPerson) => 
   axios
-    .post(dburl, newPerson)
-    .then(response => response.data)
-    .catch(e => console.log(e));
+    .post(dburl, newPerson);
 
 const updatePerson = (id, updatedPerson) => 
   axios
-    .put(`${dburl}/${id}`, updatedPerson)
-    .then(response => response.data)
-    .catch(e => console.log(e));
+    .put(`${dburl}/${id}`, updatedPerson);
 
 const deletePerson = (id) => 
   axios
-    .delete(`${dburl}/${id}`)
-    .then(response => response.data)
-    .catch(e => console.log(e));
+    .delete(`${dburl}/${id}`);
+    
 
 // eslint-disable-next-line
 export default {

@@ -3,7 +3,16 @@ import Input from './Input';
 
 /* tarvitaan tuoda vielä editille toiminnot: inputchange, save, undo */
 
-const PersonsAll = ({persons, onclick, edit, undoedit, clickedid, editperson, editinputchanged, saveedit}) => persons.map((person, index) => {
+const PersonsAll = ({
+  persons, 
+  onclick, 
+  edit, 
+  undoedit, 
+  clickedid, 
+  editperson, 
+  editinputchanged, 
+  saveedit
+}) => persons.map((person, index) => {
   if (clickedid) {
     if (person.id === clickedid) {
       return (

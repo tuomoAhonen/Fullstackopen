@@ -1,7 +1,17 @@
 import PersonsFound from './PersonsFound';
 import PersonsAll from './PersonsAll';
 
-const PersonsToShow = ({persons, string, onclick, edit, undoedit, clickedid, editinputchanged, saveedit, editperson}) => {
+const PersonsToShow = ({
+  persons, 
+  string, 
+  onclick, 
+  edit, 
+  undoedit, 
+  clickedid, 
+  editinputchanged, 
+  saveedit, 
+  editperson
+}) => {
   /* Voidaan käyttää Search:ssa, jos halutaan käydä lävitse arrayn objektin kaikki propertiet
   const object = persons[0];
   console.log(Object.keys(object).length);
@@ -16,14 +26,36 @@ const PersonsToShow = ({persons, string, onclick, edit, undoedit, clickedid, edi
           persons.filter(person => 
             person.name.toLowerCase().includes(string.toLowerCase()))
           */
-          <PersonsFound persons={persons} string={string} onclick={onclick} edit={edit} undoedit={undoedit} clickedid={clickedid} editperson={editperson} editinputchanged={editinputchanged} saveedit={saveedit} />
+          <PersonsFound 
+            persons={persons} 
+            string={string} 
+            onclick={onclick} 
+            edit={edit} 
+            undoedit={undoedit} 
+            clickedid={clickedid} 
+            editperson={editperson} 
+            editinputchanged={editinputchanged} 
+            saveedit={saveedit} 
+          />
           :
-          <PersonsAll persons={persons} onclick={onclick} edit={edit} undoedit={undoedit} clickedid={clickedid} editperson={editperson} editinputchanged={editinputchanged} saveedit={saveedit} />
+          <PersonsAll 
+            persons={persons} 
+            onclick={onclick} 
+            edit={edit} 
+            undoedit={undoedit} 
+            clickedid={clickedid} 
+            editperson={editperson} 
+            editinputchanged={editinputchanged} 
+            saveedit={saveedit} 
+          />
         }
       </tbody>
     </table>
     </>
   );
+};
+
+export default PersonsToShow;
   
    /* 2 vaihtoehto
     SearchFromArrayWithObjects(string, persons, "name")
@@ -73,6 +105,3 @@ const PersonsToShow = ({persons, string, onclick, edit, undoedit, clickedid, edi
     )
   }
   */
-};
-
-export default PersonsToShow;
