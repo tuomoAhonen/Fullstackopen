@@ -31,8 +31,8 @@ const App = () => {
     }, 5000)
   }
 
-  const dbhook = () => {
-    personService
+  const dbhook = async () => {
+    await personService
       .getAll()
       .then(response => setPersons(response))
       .catch(e => {
@@ -46,7 +46,10 @@ const App = () => {
       */
   };
 
-  useEffect(dbhook, [types]);
+  useEffect(() => {
+    dbhook();
+    // eslint-disable-next-line
+  }, [types]);
 
   const inputChanged = (e) => {
     setNewPerson({...newPerson, [e.target.name]: e.target.value});
@@ -56,7 +59,7 @@ const App = () => {
     setString(e.target.value);
   };
   
-  const addPerson = (e) => {
+  const addPerson = async (e) => {
     e.preventDefault();
     let personFound;
 
@@ -66,7 +69,7 @@ const App = () => {
         if (personFound.phone !== newPerson.phone) {
           if (window.confirm(`${newPerson.name} is already on the phonebook.\nDo you want to replace ${personFound.name}'s old number with the new one?`)) {
             //console.log(person);
-            personService
+            await personService
               .updatePerson(personFound.id, newPerson)
               .then(messageSetter(`${newPerson.name}'s phone number has been updated.`, types.success))
               .catch(e => {
@@ -86,7 +89,7 @@ const App = () => {
       // eslint-disable-next-line
       } else if (personFound = persons.find(person => person.phone === newPerson.phone)) {
         if (window.confirm(`${newPerson.phone} is already added to ${personFound.name}.\nDo you want to replace ${personFound.name}'s name with the new one?`)) {
-          personService
+          await personService
             .updatePerson(personFound.id, newPerson)
             .then(messageSetter(`${personFound.name}'s name has been changed to ${newPerson.name}.`, types.success))
             .catch(e => {
@@ -100,7 +103,7 @@ const App = () => {
         };
       } else {
         //console.log(newPerson);
-        personService
+        await personService
           .createPerson(newPerson)
           .then(messageSetter(`${newPerson.name} has been successfully added to your phonebook.`, types.success))
           .catch(e => {
@@ -120,13 +123,13 @@ const App = () => {
     };
   };
 
-  const deletePerson = (id) => {
+  const deletePerson = async (id) => {
     //console.log('delete' , id);
     const personToDelete = persons.find(person => person.id === id);
     //console.log(personToDelete);
 
     if (window.confirm(`Delete ${personToDelete.name}?`)) {
-      personService
+      await personService
         .deletePerson(id)
         .then(messageSetter(`${personToDelete.name} has been deleted.`, types.success))
         .catch(e => {
@@ -149,8 +152,8 @@ const App = () => {
     setEditPerson({...editPerson, [e.target.name]: e.target.value});
   };
 
-  const saveEdit = () => {
-    personService
+  const saveEdit = async () => {
+    await personService
       .updatePerson(clickedId, editPerson)
       .then(messageSetter(`${editPerson.name}'s information has been changed.`, types.success))
       .catch(e => {
