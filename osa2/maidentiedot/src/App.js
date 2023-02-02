@@ -12,14 +12,14 @@ const App = () => {
 
   //console.log(weather);
 
-  const fetchCountries = () => {
-    axios
+  const fetchCountries = async () => {
+    await axios
       .get(url)
       .then(response => setCountries(response.data))
       .catch(e => console.log(e));
   };
 
-  useEffect(
+  useEffect(() =>
     fetchCountries
   , []);
 
