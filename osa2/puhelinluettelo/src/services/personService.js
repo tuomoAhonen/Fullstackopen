@@ -2,21 +2,21 @@ import axios from 'axios';
 
 const dburl = 'http://localhost:3001/persons';
 
-const getAll = () => 
-  axios
+const getAll = async () => 
+  await axios
     .get(dburl)
     .then(response => response.data);
 
-const createPerson = (newPerson) => 
-  axios
+const createPerson = async (newPerson) => 
+  await axios
     .post(dburl, newPerson);
 
-const updatePerson = (id, updatedPerson) => 
-  axios
+const updatePerson = async (id, updatedPerson) => 
+  await axios
     .put(`${dburl}/${id}`, updatedPerson);
 
-const deletePerson = (id) => 
-  axios
+const deletePerson = async (id) => 
+  await axios
     .delete(`${dburl}/${id}`);
     
 
