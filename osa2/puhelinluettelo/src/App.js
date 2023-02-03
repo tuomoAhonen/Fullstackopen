@@ -24,7 +24,7 @@ const App = () => {
   const [message, setMessage] = useState(null);
   const [types] = useState({success: 'success', error: 'error'});
 
-  const messageSetter = (msg, msgtype) => {
+  const messageSetter = async (msg, msgtype) => {
     setMessage({msg, msgtype});
     setTimeout(() => {
       setMessage(null);
@@ -40,7 +40,7 @@ const App = () => {
           messageSetter(`Couldn't reload/find database.\nCheck your browser's developer console for the error.`, types.error), 
           console.log(e)
         );
-    });
+      });
       /* Very simple way to handle the error.
       .catch(e => messageSetter(`Couldn't reload/find database.\nError: ${e}`)); 
       */
@@ -50,7 +50,7 @@ const App = () => {
     dbhook();
     // eslint-disable-next-line
   }, [types]);
-
+  
   const inputChanged = (e) => {
     setNewPerson({...newPerson, [e.target.name]: e.target.value});
   };
@@ -103,15 +103,32 @@ const App = () => {
         };
       } else {
         //console.log(newPerson);
+        let allPersons = [null];
         await personService
-          .createPerson(newPerson)
-          .then(messageSetter(`${newPerson.name} has been successfully added to your phonebook.`, types.success))
-          .catch(e => {
+          .getAll()
+          .then(response => allPersons.splice(0, 1, response))
+          .catch(e => { 
             return (
               messageSetter(`There was an error, try again.\nCheck your browser's developer console for the error.`, types.error),
               console.log(e)
             );
           });
+        //console.log(allPersons);
+        if (allPersons[0].find(person => person.name.toLowerCase() === newPerson.name.toLowerCase())) {
+          if (window.confirm('The person was already addded to database.\nDo you want to check or edit it?')) {
+            setString(newPerson.name);
+          }
+        } else {
+          await personService
+            .createPerson(newPerson)
+            .then(messageSetter(`${newPerson.name} has been successfully added to your phonebook.`, types.success))
+            .catch(e => {
+              return (
+                messageSetter(`There was an error, try again.\nCheck your browser's developer console for the error.`, types.error),
+                console.log(e)
+              );
+            });
+        }
         dbhook();
         setNewPerson({name: '', phone: ''});
         /*setPersons([...persons, {name: newPerson.name, phone: newPerson.phone}]);
