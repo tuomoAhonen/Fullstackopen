@@ -1,0 +1,7 @@
+POST https://backendpuhelinluettelo.vercel.app/api/persons
+Content-Type: application/json
+
+{
+  "name": "Pessi Esimerkki", 
+  "phone": "010 010 0102"
+}
