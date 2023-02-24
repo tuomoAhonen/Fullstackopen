@@ -1,0 +1,1 @@
+DELETE https://backendpuhelinluettelo.vercel.app/api/persons/15

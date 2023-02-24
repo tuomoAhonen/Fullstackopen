@@ -1,0 +1,33 @@
+{
+  "name": "backendpuhelinluettelo",
+  "version": "1.0.0",
+  "description": "backend to puhelinluettelo app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "pg-promise": "^11.2.0"
+  },
+  "keywords": [
+    "backend",
+    "nodejs",
+    "express",
+    "server",
+    "puhelinluettelo"
+  ],
+  "author": "Tuomo Ahonen",
+  "license": "ISC"
+}
