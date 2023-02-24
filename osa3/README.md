@@ -7,4 +7,6 @@ PostreSQL-database as Cloud based @ https://render.com/ <br />
 You will need to set-up PostreSQL-database to run this fullstack-app locally or re-configure front-end & use API @ https://backendpuhelinluettelo.vercel.app/api/persons <br />
 Also, you will need to set-up .env variables as: <br />
 DBPASSWORD=databasepassword <br />
-DBURLWITHPW=postgres://username:databasepassword@url/databasename?ssl=true
+DBURLWITHPW=postgres://username:databasepassword@url/databasename?ssl=true <br />
+
+Exercise 3.12 is in file pgpromise.js
