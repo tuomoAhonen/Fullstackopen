@@ -1,12 +1,14 @@
 const morgan = require('morgan');
 
-const DataLogger = (app) => {
-  morgan.token('requestbodydata', (request) => {
-    return JSON.stringify(request.body);
-  });
+morgan.token('requestbodydata', (request) => {
+  return JSON.stringify(request.body);
+});
 
-  //app.use(morgan(':method :url :status :res[content-length] - :response-time ms :requestbodydata'));
-  return app.use(morgan((tokens, request, response) => {
+//app.use(morgan(':method :url :status :res[content-length] - :response-time ms :requestbodydata'));
+//app.use(
+
+const DataLogger = (
+  morgan((tokens, request, response) => {
     switch (request.method.toLocaleLowerCase()) {
       case 'post':
         return [
@@ -50,7 +52,8 @@ const DataLogger = (app) => {
           request.body ? tokens.requestbodydata(request) : ''
         ].join(' ');
     }
-  }));
-};
+  })
+);
+//);
 
 module.exports = DataLogger;
