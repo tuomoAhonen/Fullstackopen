@@ -7,9 +7,9 @@ app.use('/static/images', express.static('./public/img'));
 const dataLogger = require('./middlewares/DataLogger');
 const unknownEndpoint = require('./middlewares/UnknownEndpoint');
 const errorHandler = require('./middlewares/ErrorHandler');
-const index = require('./routes/IndexRouter');
-const infoRouter = require('./routes/InfoRouter');
-const persons = require('./routes/PersonsRouter');
+const index = require('./controllers/IndexRouter');
+const infoRouter = require('./controllers/InfoRouter');
+const persons = require('./controllers/PersonsRouter');
 
 // api/index.js <--- Verceliin tarvittava polku, jotta express server toimii
 // Listen port tiedot pitää poistaa index.js tiedostosta
