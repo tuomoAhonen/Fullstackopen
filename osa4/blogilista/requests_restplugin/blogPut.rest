@@ -1,0 +1,10 @@
+PUT http://localhost:3001/api/blogs/60
+Content-Type: application/json
+
+{
+  "title": "No more 4",
+  "author": "Helle Esimerkkinen",
+  "url": "https://www.nomore4.com",
+  "likes": 15,
+  "createdbyuser": 4
+}

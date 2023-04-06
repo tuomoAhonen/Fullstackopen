@@ -1,0 +1,10 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+  "title": "No more 26",
+  "author": "Helle Esimerkkinen", 
+  "url": "https://www.nomore26.com", 
+  "likes": 10,
+  "createdbyuserid": null
+}
