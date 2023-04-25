@@ -1,0 +1,40 @@
+.gridItem1 {
+  min-height: fit-content;
+  height: fit-content;
+  display: inline-block;
+  position: relative;
+  /*float: left;*/
+  width: 32.62%;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #6495ED;
+  border-radius: 5px;
+}
+
+.gridItem2 {
+  min-height: fit-content;
+  height: fit-content;
+  display: inline-block;
+  position: relative;
+  /*float: left;*/
+  width: 32.62%;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #6495ED;
+  border-radius: 5px;
+}
+
+.gridItem3 {
+  min-height: fit-content;
+  height: fit-content;
+  display: inline-block;
+  position: relative;
+  /*float: left;*/
+  width: 32.62%;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #6495ED;
+  border-radius: 5px;
+} 
