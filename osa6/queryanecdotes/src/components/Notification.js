@@ -4,13 +4,13 @@ const Notification = () => {
   let message = useNotificationValue();
 
   const style = {
-    padding: '5px',
-    marginBottom: '5px',
-    backgroundColor: '#ffffff',
     display: 'block',
     position: 'absolute',
     right: '10px',
-    top: '10px'
+    top: '10px',
+    padding: '5px',
+    marginBottom: '5px',
+    backgroundColor: '#ffffff'
   }
 
   //message = null;

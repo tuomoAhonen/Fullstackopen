@@ -23,11 +23,11 @@ const getNewId = async () => {
 }
 
 export const postAnecdote = async (anecdote) => {
-  const id = await getNewId();
-  //console.log(anecdote);
-  const newAnecdote = {id: id, ...anecdote}
-  const result = await axios.post(url, newAnecdote);
-  return result.data;
+    const id = await getNewId();
+    //console.log(anecdote);
+    const newAnecdote = {id: id, ...anecdote}
+    const result = await axios.post(url, newAnecdote);
+    return result.data;
 };
 
 export const voteAnecdote = async (id) => {

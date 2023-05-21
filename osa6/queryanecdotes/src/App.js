@@ -35,13 +35,43 @@ const App = () => {
     voteMutation.mutate(anecdote.id);
   };
 
-  const style = {
+  const anecdoteAreaStyle = {
+    display: 'block',
     width: '240px',
     minHeight: '32px',
-    marginBottom: '5px',
     padding: '5px',
-    backgroundColor: '#FFA07A',
-    borderRadius: '5px'
+    marginBottom: '5px',
+    borderRadius: '5px',
+    backgroundColor: '#FFE4E1'
+  };
+
+  const anecdoteContentStyle = {
+    display: 'block', 
+    width: '100%'
+  };
+
+  const anecdoteBottomAreaStyle = {
+    display: 'block', 
+    width: '100%', 
+    height: '21px',
+    padding: '5px', 
+    marginTop: '5px', 
+    marginBottom: '-5px', 
+    marginLeft: '-5px', 
+    borderBottomLeftRadius: '5px', 
+    borderBottomRightRadius: '5px', 
+    backgroundColor: '#FFA07A'
+  };
+
+  const anecdoteVoteAreaStyle = {
+    display: 'inline-block', 
+    verticalAlign: 'middle'
+  };
+
+  const voteButtonStyle = {
+    display: 'inline-block', 
+    verticalAlign: 'middle', 
+    float: 'right'
   };
 
   if (anecdotes) {
@@ -51,13 +81,12 @@ const App = () => {
         <div>
           <h3 style={{marginBottom: '5px'}}>Anecdotes</h3>
           {anecdotes.map(anecdote =>
-            <div style={style} key={anecdote.id}>
-              <div style={{display: 'block', float: 'right', minWidth: '60px', backgroundColor: '#FFE4E1', padding: '5px'}}>
-                <div style={{display: 'inline-block'}}>{anecdote.votes}</div>
-                <input type='button' value='Vote' onClick={() => handleVote(anecdote)} style={{display: 'inline-block', marginLeft: '5px'}} />
+            <div style={anecdoteAreaStyle} key={anecdote.id}>
+              <div style={anecdoteContentStyle}>{anecdote.content}</div>
+              <div style={anecdoteBottomAreaStyle}>
+                <div style={anecdoteVoteAreaStyle}>{anecdote.votes}</div>
+                <input type='button' value='Vote' onClick={() => handleVote(anecdote)} style={voteButtonStyle} />
               </div>
-              <div style={{display: 'block'}}>{anecdote.content}</div>
-              
             </div>
           )}
         </div>
