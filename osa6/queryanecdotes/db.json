@@ -29,6 +29,21 @@
       "id": 6,
       "content": "Is not",
       "votes": 0
+    },
+    {
+      "id": 7,
+      "content": "New one",
+      "votes": 0
+    },
+    {
+      "id": 8,
+      "content": "Test id",
+      "votes": 0
+    },
+    {
+      "id": 9,
+      "content": "It works",
+      "votes": 0
     }
   ]
 }

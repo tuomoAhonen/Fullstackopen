@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = 'http://localhost:3001/anecdotes'
+const url = 'http://localhost:3001/anecdotes';
 
 export const getAnecdotes = async () => {
   const result = await axios.get(url);
@@ -8,7 +8,7 @@ export const getAnecdotes = async () => {
 };
 
 const getAnecdote = async (id) => {
-  return await axios.get(url+'/'+id);
+  return await axios.get(`${url}/${id}`);
 };
 
 const getNewId = async () => {
@@ -16,11 +16,11 @@ const getNewId = async () => {
   const anecdotes = result.data;
   //console.log(anecdotes);
 
-  let newId = Math.max(...anecdotes.map(anecdote => anecdote.id));
-  newId++;
+  let newId = Math.max(...anecdotes.map(anecdote => anecdote.id)) + 1;
+  //newId++;
   //console.log(newId);
   return newId;
-}
+};
 
 export const postAnecdote = async (anecdote) => {
     const id = await getNewId();
@@ -37,7 +37,7 @@ export const voteAnecdote = async (id) => {
   //console.log(anecdote);
   anecdote.votes++;
 
-  const result = await axios.put(url+'/'+id, anecdote);
+  const result = await axios.put(`${url}/${id}`, anecdote);
   //console.log(result);
   return result.data;
 };

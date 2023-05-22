@@ -35,7 +35,7 @@ const AnecdoteForm = () => {
     event.preventDefault();
     const content = event.target.anecdote.value;
     event.target.anecdote.value = '';
-    const anecdote = {content: content.charAt(0).toUpperCase() + content.slice(1), votes: 0}
+    const anecdote = {content: content.charAt(0).toUpperCase() + content.slice(1), votes: 0};
     anecdoteMutation.mutate(anecdote);
   };
 

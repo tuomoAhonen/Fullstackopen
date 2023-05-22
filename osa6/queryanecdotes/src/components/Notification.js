@@ -11,7 +11,7 @@ const Notification = () => {
     padding: '5px',
     marginBottom: '5px',
     backgroundColor: '#ffffff'
-  }
+  };
 
   //message = null;
 
