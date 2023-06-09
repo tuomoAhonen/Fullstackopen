@@ -1,0 +1,63 @@
+{
+  "notes": [
+    {
+      "id": 0,
+      "content": "Custom hooks are awesome"
+    },
+    {
+      "id": 1,
+      "content": "Best feature ever <3"
+    },
+    {
+      "content": "Testi",
+      "id": 2
+    },
+    {
+      "content": "Testi 2",
+      "id": 3
+    },
+    {
+      "content": "Testi 3",
+      "id": 4
+    },
+    {
+      "content": "Testi 4",
+      "id": 5
+    },
+    {
+      "content": "Testi 5",
+      "id": 6
+    },
+    {
+      "content": "Testi 6",
+      "id": 7
+    }
+  ],
+  "persons": [
+    {
+      "id": 0,
+      "name": "Essi Esimerkkinen",
+      "phone": "044 123 4567"
+    },
+    {
+      "id": 1,
+      "name": "Lauren Le Paris",
+      "phone": "044 987 9999"
+    },
+    {
+      "name": "Testi Testaaja",
+      "phone": "050 123 1234",
+      "id": 2
+    },
+    {
+      "name": "Mikko Mallinen",
+      "phone": "040 654 6544",
+      "id": 3
+    },
+    {
+      "name": "Eero Kuusi",
+      "phone": "040 436 7381",
+      "id": 4
+    }
+  ]
+}
