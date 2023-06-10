@@ -5,7 +5,7 @@ Other exercises are very straight forward.<br />
 
 You should first make PostgreSQL Database and tables with the queries.<br />
 Use it as cloud based for example at https://render.com<br />
-Setup .env file with provided database url from the render or you could do a local setup for the database also.<br />
+Setup .env file with provided database url from the Render or you could do a local setup for the database also.<br />
 
 # Bloglist's backend - PostgreSQL Database's table creation queries<br />
 CREATE TABLE IF NOT EXISTS public.users<br />
