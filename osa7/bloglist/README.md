@@ -3,10 +3,11 @@ Should update Bloglist's backend too. I do not like the token based authenticati
 Something to replace that. Also, could make it a bit simplier.<br />
 Other exercises are very straight forward.<br />
 
-# Bloglist's backend - PostgreSQL DB's table creation queries<br />
-You should first make PostgreSQL DB and tables with the queries. Use it as cloud based for example at https://render.com<br />
+You should first make PostgreSQL Database and tables with the queries.<br />
+Use it as cloud based for example at https://render.com<br />
 Setup .env file with provided database url from the render or you could do a local setup for the database also.<br />
 
+# Bloglist's backend - PostgreSQL Database's table creation queries<br />
 CREATE TABLE IF NOT EXISTS public.users<br />
 (<br />
     userid integer NOT NULL DEFAULT nextval('users_userid_seq'::regclass),<br />
