@@ -1,7 +1,7 @@
 # Comments<br/>
 Should update Bloglist's backend too. I do not like the token based authentication with expiration.<br />
 Something to replace that. Also, could make it a bit simplier.<br />
-Other excercises very straight forward.<br />
+Other exercises are very straight forward.<br />
 
 # Bloglist's backend - PostgreSQL DB's table creation queries<br />
 You should first make PostgreSQL DB and tables with the queries. Use it as cloud based for example at https://render.com<br />
