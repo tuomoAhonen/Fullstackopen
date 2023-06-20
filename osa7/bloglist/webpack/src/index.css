@@ -1,0 +1,6 @@
+.container {
+	margin: 10;
+	padding: 5px;
+	background-color: lightblue;
+	-webkit-text-size-adjust: 100%;
+}
