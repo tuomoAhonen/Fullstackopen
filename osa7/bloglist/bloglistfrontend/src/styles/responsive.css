@@ -1,0 +1,404 @@
+/* These styles should be divided as global- & component based to their own files. 
+	For small performance update, but this is just an exercise */
+
+/* Reasoning for this is, that when component is loaded and rendered, 
+	it has less code to read from */
+
+/* You could do the same for StyledComponents.js, but I am not sure 
+	if there is any performance gains and global css should be assigned to every file */
+
+/* As like this, it could be fine, if it was rendered as server-side 
+	like in Next.js or React build on Node and rendered on React app, 
+	because most of the code is instantly rendered on the server and 
+	then sent to client's web browser to browse. So the initial loading 
+	might take little longer in time, when you type the web-url and land to the site. 
+	The loading time is depending on server's performance and network.
+	
+	React's advantage would be it's scalability without huge server power/performance, 
+	because the performance comes mostly from user's device, but the downside of it, 
+	would be that users who have older or low-performance device on use could suffer if 
+	the app is somewhat demanding. This is the reason why you should divide your code to 
+	components and what parts of the code are related to that spesific component to 
+	their own files also. So there is least possible amount code to perform/read and render 
+	on user's device on any use case like action on the user interface or 
+	loading part of the user interface (in this case the UI is website).
+	
+	Also React is very user-friendly on developing and comes with pre-installed and 
+	downloadable libraries/frameworks to help with developing, so you can configure 
+	the project within your specific needs. Same would be with Next.js for the server-side rendering. 
+	Yksi lisäpiste Next.js:lle tulee suorasta näkyvyydestä search engineissä(google, yahoo, bing jne.) 
+	ilman minkäänlaista lisä konfiguraatiota. Mikä liittyy search engine optimointiin (SEO). */
+
+/* Reasoning to do CSS as like this, is that if you are writing your own responsive CSS, 
+	then it will be less code than you would need inside StyledComponents.js */
+
+/* Other good choice/option would be to use some other framework/library to handle responsiveness 
+	like bootsrap, etc... and use StyledComponents for styling or any other similar framework/library 
+	or Bootstrap to handle both jobs */
+
+/* Global styles */
+
+.AppContainer {
+	margin: 0;
+	padding: 0;
+}
+
+.Container {
+	margin: 0;
+	padding: 0;
+}
+
+.ArrowImage {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 0;
+	background: none;
+}
+
+.H1 {
+	font-size: xx-large;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.H2 {
+	font-size: x-large;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.H3 {
+	font-size: large;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.H4 {
+	font-size: medium;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.InputButtonLeft {
+	display: inline-block;
+	padding: 5px;
+	color: #000000;
+	background-color: #d3d3d3;
+	border-color: #d3d3d3;
+	/* tänne jotain */
+}
+
+.InputButtonRight {
+	display: inline-block;
+	padding: 5px;
+	margin-left: 5px;
+	color: #000000;
+	background-color: #87cefa;
+	border-color: #87cefa;
+}
+
+/* Navigation styles */
+
+.Header {
+	min-height: 20px;
+	width: auto;
+	padding: 5px;
+	background-color: #5f9ea0;
+	/*border-radius: 5px;*/
+}
+
+.NavigationMobileDisplayButton {
+	display: none;
+}
+
+.NavigationBar {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.NavigationButton {
+	display: inline-block;
+	height: 100%;
+	padding: 5px;
+	margin-right: 5px;
+	background-color: #6495ed;
+}
+
+.LoginArea {
+	/*display: inline-block;*/
+	height: 100%;
+	float: right;
+}
+
+.LoginInputs {
+	margin-top: 6px;
+}
+
+.ParagraphStrip {
+	margin: 0;
+	padding: 0;
+}
+
+.ParagraphStripFloat {
+	margin: 0;
+	padding: 0;
+	float: right;
+}
+
+.ContentArea {
+	margin-top: 5px;
+}
+
+/* BlogView styles */
+
+.BlogArea {
+	margin: 0;
+	padding: 0;
+}
+
+.UlBW {
+	margin: 0;
+	margin-bottom: 5px;
+	padding: 5px;
+	background-color: #6495ed;
+	list-style-type: none;
+}
+
+.LiBW {
+	margin-bottom: 5px;
+}
+
+.UlComments {
+	margin: 0;
+	/*margin-bottom: 5px;*/
+	padding: 5px;
+	background-color: #6495ed;
+	list-style-type: none;
+	box-sizing: border-box;
+}
+
+.LiComments {
+	box-sizing: inherit;
+}
+
+.InputTextYoutubeStyle {
+	box-sizing: inherit;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 2px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid #2f4f4f;
+	background-color: #6495ed;
+}
+
+.InputTextYoutubeStyle::placeholder {
+	color: #2f4f4f;
+}
+
+.InputButtonLeftFloat {
+	float: right;
+}
+
+.InputButtonRightFloat {
+	float: right;
+	margin-left: 5px;
+}
+
+/* BlogAddNew styles */
+
+.FormAddNew {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	width: auto;
+	padding: 5px;
+	background-color: #6495ed;
+}
+
+.DivFullWidth {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.InputText {
+	width: 220px;
+	margin-bottom: 5px;
+}
+
+/* DisplayBlogs styling */
+
+.Ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.Li {
+	margin-bottom: 5px;
+	padding: 5px;
+	background-color: #6495ed;
+}
+
+/* Login styling */
+
+.LoginContainer {
+	width: auto;
+	margin: auto;
+	padding: 5px;
+	padding-bottom: 8px;
+	background-color: #5f9ea0;
+	border-radius: 5px;
+}
+
+.LoginForm {
+	width: 16em;
+	margin: auto;
+}
+
+.LabelFull {
+	display: block;
+	width: 100%;
+	box-sizing: inherit;
+}
+
+.LoginSubmit {
+	display: block;
+	margin: 0;
+	padding: 5px;
+	color: #000000;
+	background-color: #87cefa;
+	border-color: #87cefa;
+}
+
+/* Responsive styling */
+
+@media screen and (max-width: 600px) {
+	.AppContainer {
+		margin: -8px;
+		padding: 0;
+	}
+
+	.H2 {
+		margin-left: 2px;
+	}
+
+	.Header {
+		min-height: 32px;
+		padding: 5px;
+		background-color: #5f9ea0;
+		border-radius: 0px;
+	}
+
+	.NavigationMobileDisplayButton {
+		display: inline-block;
+		margin-top: 6px;
+		width: 22px;
+		height: 22px;
+	}
+
+	.NavigationBar {
+		position: absolute;
+		display: none;
+		left: 0;
+		right: 0;
+		top: 46px;
+		padding-top: 5px;
+		background-color: #5f9ea0;
+		box-sizing: border-box;
+	}
+
+	.NavigationButton {
+		display: block;
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+		box-sizing: inherit;
+	}
+
+	.InputText {
+		width: inherit;
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 5px;
+		box-sizing: inherit;
+	}
+
+	.LoginContainer {
+		border-radius: 0;
+	}
+}
+
+@media screen and (min-width: 601px) and (max-width: 767px) {
+	.AppContainer {
+		margin: -4px;
+		padding: 0;
+	}
+
+	.H2 {
+		margin-left: 2px;
+	}
+
+	.Header {
+		min-height: 32px;
+		padding: 5px;
+		background-color: #5f9ea0;
+		border-radius: 0px;
+	}
+
+	.NavigationMobileDisplayButton {
+		display: inline-block;
+		margin-top: 6px;
+		width: 22px;
+		height: 22px;
+	}
+
+	.NavigationBar {
+		position: absolute;
+		display: none;
+		left: 4px;
+		right: 4px;
+		top: 46px;
+		padding-top: 5px;
+		background-color: #5f9ea0;
+		box-sizing: border-box;
+	}
+
+	.NavigationButton {
+		display: block;
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+		box-sizing: inherit;
+	}
+
+	.InputText {
+		width: inherit;
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 5px;
+		box-sizing: inherit;
+	}
+
+	.LoginContainer {
+		border-radius: 0;
+	}
+}
+
+/*
+@media screen and (max-width: 1199) {
+}
+
+@media screen and (max-width: 2559) {
+}
+
+@media screen and (min-width: 2560) {
+}
+*/

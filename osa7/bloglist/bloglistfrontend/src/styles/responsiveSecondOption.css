@@ -1,0 +1,304 @@
+/* Global styles */
+
+.AppContainer {
+	margin: 0;
+	padding: 0;
+}
+
+.Container {
+	margin: 0;
+	padding: 0;
+}
+
+.H1 {
+	font-size: xx-large;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.H2 {
+	font-size: x-large;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.H3 {
+	font-size: large;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.H4 {
+	font-size: medium;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.InputButtonLeft {
+	display: inline-block;
+	padding: 5px;
+	color: #000000;
+	background-color: #d3d3d3;
+	border-color: #d3d3d3;
+	/* tänne jotain */
+}
+
+.InputButtonRight {
+	display: inline-block;
+	padding: 5px;
+	margin-left: 5px;
+	color: #000000;
+	background-color: #87cefa;
+	border-color: #87cefa;
+}
+
+/* Navigation styles */
+
+.Header {
+	min-height: 20px;
+	width: auto;
+	padding: 5px;
+	background-color: #5f9ea0;
+	border-radius: 5px;
+}
+
+.NavigationMobileDisplayButton {
+	display: none;
+}
+
+.NavigationBarMobile {
+	display: none;
+}
+
+.NavigationBar {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.NavigationButton {
+	display: inline-block;
+	height: 100%;
+	padding: 5px;
+	margin-right: 5px;
+	background-color: #6495ed;
+}
+
+.LoginArea {
+	/*display: inline-block;*/
+	height: 100%;
+	float: right;
+}
+
+.LoginInputs {
+	margin-top: 6px;
+}
+
+.ParagraphStrip {
+	margin: 0;
+	padding: 0;
+}
+
+.ParagraphStripFloat {
+	margin: 0;
+	padding: 0;
+	float: right;
+}
+
+.ContentArea {
+	margin-top: 5px;
+}
+
+/* BlogView styles */
+
+.UlBW {
+	margin: 0;
+	margin-bottom: 5px;
+	padding: 5px;
+	background-color: #6495ed;
+	list-style-type: none;
+}
+
+.LiBW {
+	margin-bottom: 5px;
+}
+
+.UlComments {
+	margin: 0;
+	/*margin-bottom: 5px;*/
+	padding: 5px;
+	background-color: #6495ed;
+	list-style-type: none;
+	box-sizing: border-box;
+}
+
+.LiComments {
+	box-sizing: inherit;
+}
+
+.InputTextYoutubeStyle {
+	box-sizing: inherit;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 2px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid #2f4f4f;
+	background-color: #6495ed;
+}
+
+.InputTextYoutubeStyle::placeholder {
+	color: #2f4f4f;
+}
+
+.InputButtonLeftFloat {
+	float: right;
+}
+
+.InputButtonRightFloat {
+	float: right;
+	margin-left: 5px;
+}
+
+/* BlogAddNew styles */
+
+.FormAddNew {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	width: auto;
+	padding: 5px;
+	background-color: #6495ed;
+}
+
+.DivFullWidth {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.InputText {
+	width: 220px;
+	margin-bottom: 5px;
+}
+
+/* DisplayBlogs styling */
+
+.Ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.Li {
+	margin-bottom: 5px;
+	padding: 5px;
+	background-color: #6495ed;
+}
+
+/* Login styling */
+
+.LoginContainer {
+	width: auto;
+	margin: auto;
+	padding: 5px;
+	padding-bottom: 8px;
+	background-color: #5f9ea0;
+	border-radius: 5px;
+}
+
+.LoginForm {
+	width: 16em;
+	margin: auto;
+}
+
+.LabelFull {
+	display: block;
+	width: 100%;
+	box-sizing: inherit;
+}
+
+.LoginSubmit {
+	display: block;
+	margin: 0;
+	padding: 5px;
+	color: #000000;
+	background-color: #87cefa;
+	border-color: #87cefa;
+}
+
+/* Responsive styling */
+
+@media screen and (max-width: 600px) {
+	.AppContainer {
+		margin: -8px;
+		padding: 0;
+	}
+
+	.H2 {
+		margin-left: 2px;
+	}
+
+	.Header {
+		min-height: 32px;
+		padding: 5px;
+		background-color: #5f9ea0;
+		border-radius: 0px;
+	}
+
+	.NavigationMobileDisplayButton {
+		display: inline-block;
+		margin-top: 6px;
+		width: 22px;
+		height: 22px;
+	}
+
+	.NavigationBarMobile {
+		display: none;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 47px;
+		padding-top: 5px;
+		background-color: #5f9ea0;
+		box-sizing: border-box;
+	}
+
+	.NavigationBar {
+		position: absolute;
+		display: none;
+	}
+
+	.NavigationButton {
+		display: block;
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+		box-sizing: inherit;
+	}
+
+	.InputText {
+		width: inherit;
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 5px;
+		box-sizing: inherit;
+	}
+
+	.LoginContainer {
+		border-radius: 0;
+	}
+}
+
+@media screen and (max-width: 767px) {
+}
+
+@media screen and (max-width: 1199) {
+}
+
+@media screen and (max-width: 2559) {
+}
+
+@media screen and (min-width: 2560) {
+}

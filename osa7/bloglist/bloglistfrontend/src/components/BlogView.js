@@ -1,10 +1,44 @@
 import {editBlog, deleteBlog} from '../services/BlogService';
 import {useBlogsDispatch} from '../reducers/BlogsReducer';
 import {useMutation} from '@tanstack/react-query';
-import {useNavigate} from 'react-router-dom';
-import Comments from './Comments';
+import {useNavigate, useLocation} from 'react-router-dom';
+import BlogComments from './BlogComments';
+import {Container, UlBW, LiBW, H2, BlogArea, InputButtonLeftFloat, InputButtonRightFloat, ArrowImage} from '../styles/StyledComponents';
+import arrowLeft from '../images/arrow-left-long-solid.svg';
+//import {usePathValue} from '../reducers/PathReducer';
+import {useEffect, useState} from 'react';
 
 const BlogView = ({user, blog, refreshBlogs, handleErrors, handleMessage}) => {
+	const [previousPath, setPreviousPath] = useState('/');
+	const location = useLocation();
+
+	useEffect(() => {
+		switch (true) {
+			case /^\/myblogs\/\d{1,}$/g.test(location.pathname):
+				return setPreviousPath('/');
+			case /^\/othersblogs\/\d{1,}$/g.test(location.pathname):
+				return setPreviousPath('/othersblogs');
+			case /^\/users\/\d{1,}\/blogs\/\d{1,}$/g.test(location.pathname):
+				const path = location.pathname.match(/\/users\/\d{1,}/g);
+				//console.log(path);
+				return setPreviousPath(path[0]);
+			default:
+				//console.log('default vaan');
+				return setPreviousPath('/');
+		}
+	}, [location]);
+
+	/*
+	const pathValue = usePathValue();
+	const previousPath = pathValue.previousPath;
+
+	const [previousPath, setPreviousPath] = useState(pathValue.previousPath);
+
+	useEffect(() => {
+		setPreviousPath(pathValue.previousPath);
+	}, [pathValue]);
+	*/
+
 	const blogsDispatch = useBlogsDispatch();
 	const navigate = useNavigate();
 
@@ -55,6 +89,7 @@ const BlogView = ({user, blog, refreshBlogs, handleErrors, handleMessage}) => {
 
 	//console.log(blog);
 
+	/*
 	const listStyles = {
 		margin: 0,
 		marginBottom: '5px',
@@ -62,43 +97,46 @@ const BlogView = ({user, blog, refreshBlogs, handleErrors, handleMessage}) => {
 		backgroundColor: '#6495ED',
 		listStyleType: 'none',
 	};
+	*/
+
+	//console.log(pathValue);
+	//console.log(blog);
+	//console.log(previousPath);
 
 	return (
-		<div>
+		<Container>
 			{blog && Object.keys(blog).length > 0 && (
-				<div>
-					<h2 style={{marginBottom: '5px', marginTop: '10px'}}>{blog.title}</h2>
-					<ul style={listStyles}>
-						<li>Author: {blog.author}</li>
-						<li>
+				<BlogArea>
+					{/*<ArrowImage type='image' src={arrowLeft} onClick={() => navigate(previousPath, {replace: true})} />*/}
+					<ArrowImage onClick={() => navigate(previousPath, {replace: true})} />
+					<H2 style={{display: 'inline-block'}}>{blog.title}</H2>
+					<UlBW /*style={listStyles}*/>
+						<LiBW>Author: {blog.author}</LiBW>
+						<LiBW>
 							Likes: {blog.likes}
 							{results === false && (
-								<input
-									className='likeButton'
+								<InputButtonRightFloat
 									type='button'
 									value='Like'
 									//onClick={() => handleLike({newlike: 1, wholiked: user.userid}, blog.blogid)}
 									onClick={() => handleLike({newlike: 1, wholiked: user.userid}, blog.blogid)}
-									style={{marginLeft: '5px', float: 'right'}}
 								/>
 							)}
-						</li>
-						<li>Url: {blog.url}</li>
+						</LiBW>
+						<LiBW>Url: {blog.url}</LiBW>
 						{blog.createdbyuserid !== null ? (
-							<li>
-								Blog added by {blog.createdbyuser.name}
-								{blog.createdbyuserid === user.userid && (
-									<input className='deleteButton' type='button' value='Delete' onClick={() => handleDelete(blog)} style={{float: 'right'}} />
-								)}
-							</li>
+							<LiBW>
+								Added by {blog.createdbyuser.name}
+								{blog.createdbyuserid === user.userid && <InputButtonLeftFloat type='button' value='Delete' onClick={() => handleDelete(blog)} />}
+							</LiBW>
 						) : (
-							<li>Blog added by Administrators</li>
+							<LiBW>Added by Administrators</LiBW>
 						)}
-					</ul>
-					<Comments comments={blog.comments} blogid={blog.blogid} handleErrors={handleErrors} />
-				</div>
+					</UlBW>
+					<BlogComments comments={blog.comments} blogid={blog.blogid} handleErrors={handleErrors} />
+				</BlogArea>
 			)}
-		</div>
+		</Container>
 	);
 };
 

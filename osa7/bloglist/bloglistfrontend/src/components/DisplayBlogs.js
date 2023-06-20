@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 //import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
+import {Container, H2, Li, Ul} from '../styles/StyledComponents';
 
 const DisplayBlogs = ({user, blogs /*, refreshBlogs, handleErrors, handleMessage*/}) => {
 	//const [screenSize, setScreenSize] = useState(window.matchMedia('(max-width: 600px)').matches);
@@ -10,33 +11,33 @@ const DisplayBlogs = ({user, blogs /*, refreshBlogs, handleErrors, handleMessage
 	useEffect(() => {
 		window.matchMedia('(max-width: 600px)').addEventListener('change', (e) => setScreenSize(e.matches));
 	}, []);
-	*/
 
 	const listStyles = {
 		marginBottom: '5px',
 		padding: '5px',
 		backgroundColor: '#6495ED',
 	};
+	*/
 
 	return (
-		<div>
-			<h2 style={{marginBottom: '5px', marginTop: '10px'}}>{user.name}&#39;s blogs</h2>
-			<ul style={{listStyleType: 'none', padding: 0, margin: 0}}>
+		<Container>
+			<H2>{user.name}&#39;s blogs</H2>
+			<Ul>
 				{blogs && blogs.length > 0 ? (
 					blogs.map(
 						(blog) => (
-							<li key={blog.blogid} style={listStyles}>
-								<Link to={`/blogs/${blog.blogid}`} replace='true' style={{textDecoration: 'none', color: '#000000'}}>
+							<Li key={blog.blogid}>
+								<Link to={`/myblogs/${blog.blogid}`} replace='true' style={{textDecoration: 'none', color: '#000000'}}>
 									{blog.title} by {blog.author}
 								</Link>
-							</li>
+							</Li>
 						)
 						/*<Blog key={blog.blogid} blog={blog} user={user} refreshBlogs={refreshBlogs} handleErrors={handleErrors} handleMessage={handleMessage} />*/
 					)
 				) : (
-					<li>No blogs found...</li>
+					<Li>No blogs found...</Li>
 				)}
-			</ul>
+			</Ul>
 			{/*
 			{blogs && blogs.length > 0 ? (
 				<div
@@ -56,7 +57,7 @@ const DisplayBlogs = ({user, blogs /*, refreshBlogs, handleErrors, handleMessage
 				<div>No blogs found...<div>
 			)}
 			*/}
-		</div>
+		</Container>
 	);
 };
 

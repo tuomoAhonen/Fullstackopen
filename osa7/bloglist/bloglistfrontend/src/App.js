@@ -5,6 +5,7 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import {useNotificationDispatch} from './reducers/NotificationReducer';
 import {useUserAccountValue, useUserAccountDispatch} from './reducers/UserAccountReducer';
+import {AppContainer} from './styles/StyledComponents';
 
 const App = () => {
 	//const [userCredentials, setUserCredentials] = useState(null);
@@ -56,7 +57,7 @@ const App = () => {
 	//console.log(userValue.user);
 
 	return (
-		<div>
+		<AppContainer>
 			{userAccountValue && userAccountValue.user !== null ? (
 				<BrowserRouter>
 					<DisplayApp userCredentials={userAccountValue.user} setUser={setUser} handleMessage={handleMessage} />
@@ -65,7 +66,7 @@ const App = () => {
 				<Login login={handleLogin} handleMessage={handleMessage} />
 			)}
 			<Notification />
-		</div>
+		</AppContainer>
 	);
 };
 

@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Routes, Route, Link, useMatch, useLocation} from 'react-router-dom';
+import {Routes, Route, Link, useMatch} from 'react-router-dom';
 import BlogAddNew from './BlogAddNew';
 import DisplayBlogs from './DisplayBlogs';
 import DisplayBlogsFromOtherUsers from './DisplayBlogsFromOtherUsers';
@@ -18,45 +18,26 @@ import {
 	LoginInputs,
 	Header,
 	NavigationMobileDisplayButton,
+	NavigationBarMobile,
 	NavigationBar,
 	NavigationButton,
 	ParagraphStripFloat,
 } from '../styles/StyledComponents';
 import bars from '../images/bars-solid.svg';
-import {usePathDispatch, usePathValue} from '../reducers/PathReducer';
 
 const Navigation = ({userCredentials, blogs, refreshBlogs, setUser, handleLogout, handleMessage, handleErrors}) => {
 	const [isDisplayed, setIsDisplayed] = useState('none');
-	const windowMatchMedia = window.matchMedia('(max-width: 767px)');
 
-	const openMobileNavigation = () => {
-		if (windowMatchMedia.matches) {
-			if (isDisplayed === 'none') {
-				setIsDisplayed('inline-block');
-			} else {
-				setIsDisplayed('none');
-			}
-		} else {
-			return null;
-		}
-	};
+	const blogsDispatch = useBlogsDispatch();
 
 	useEffect(() => {
-		if (!windowMatchMedia.matches) {
-			setIsDisplayed('inline-block');
-		}
-
-		windowMatchMedia.addEventListener('change', (e) => {
+		window.matchMedia('(max-width: 600px)').addEventListener('change', (e) => {
 			//console.log(e);
 			if (!e.matches) {
-				setIsDisplayed('inline-block');
-			} else {
 				setIsDisplayed('none');
 			}
 		});
 	}, []);
-
-	const blogsDispatch = useBlogsDispatch();
 
 	useEffect(() => {
 		//blogsDispatch({payload: blogs, type: 'setBlogs'});
@@ -94,33 +75,21 @@ const Navigation = ({userCredentials, blogs, refreshBlogs, setUser, handleLogout
 
 	const usersValue = useUsersValue();
 
-	const match = useMatch('/users/:userid');
-	//console.log(match);
-	const matchBlogs =
-		match && othersBlogs && othersBlogs.length > 0 && othersBlogs.filter((blog) => blog.createdbyuserid === Number(match.params.userid));
-	const matchUser = match && usersValue && usersValue.length > 0 && usersValue.find((user) => user.userid === Number(match.params.userid));
+	const match = useMatch('/users/:id');
+	const matchBlogs = match && othersBlogs && othersBlogs.length > 0 && othersBlogs.filter((blog) => blog.createdbyuserid === Number(match.params.id));
+	const matchUser = match && usersValue && usersValue.length > 0 && usersValue.find((user) => user.userid === Number(match.params.id));
 	const otherUsers = usersValue && usersValue.length > 0 && usersValue.filter((user) => user.userid !== userCredentials.userid);
 
-	const matchMyBlogId = useMatch('/myblogs/:blogid');
-	const matchMyBlog =
-		matchMyBlogId && blogsValue && blogsValue.length > 0 && blogsValue.find((blog) => blog.blogid === Number(matchMyBlogId.params.blogid));
+	const matchBlogId = useMatch('/blogs/:id');
+	const matchBlog = matchBlogId && blogsValue && blogsValue.length > 0 && blogsValue.find((blog) => blog.blogid === Number(matchBlogId.params.id));
 
-	const matchBlogId = useMatch('/othersblogs/:blogid');
-	const matchBlog =
-		matchBlogId && blogsValue && blogsValue.length > 0 && blogsValue.find((blog) => blog.blogid === Number(matchBlogId.params.blogid));
-
-	const matchUserBlogId = useMatch('/users/:userid/blogs/:blogid');
-	//console.log(matchUserBlogId);
-	//console.log(Number(matchUserBlogId.params.blogid));
-	const matchUserBlog =
-		matchUserBlogId && blogsValue && blogsValue.length > 0 && blogsValue.find((blog) => blog.blogid === Number(matchUserBlogId.params.blogid));
-
-	const location = useLocation();
-	const pathDispatch = usePathDispatch();
-
-	useEffect(() => {
-		pathDispatch(location.pathname, 'setPaths');
-	}, [location]);
+	const openMobileNavigation = () => {
+		if (isDisplayed === 'none') {
+			setIsDisplayed('inline-block');
+		} else {
+			setIsDisplayed('none');
+		}
+	};
 
 	const linkStyle = {
 		fontSize: '20px',
@@ -133,7 +102,7 @@ const Navigation = ({userCredentials, blogs, refreshBlogs, setUser, handleLogout
 		<Container>
 			<Header /*style={{minHeight: '20px', width: 'auto', padding: '5px', backgroundColor: '#5F9EA0', borderRadius: '5px'}}*/>
 				<NavigationMobileDisplayButton src={bars} onClick={() => openMobileNavigation()} />
-				<NavigationBar style={{display: isDisplayed}}>
+				<NavigationBarMobile style={{display: isDisplayed}}>
 					<NavigationButton>
 						<Link to='/' style={linkStyle} onClick={() => openMobileNavigation()}>
 							Home
@@ -145,12 +114,35 @@ const Navigation = ({userCredentials, blogs, refreshBlogs, setUser, handleLogout
 						</Link>
 					</NavigationButton>
 					<NavigationButton>
-						<Link to='/othersblogs' style={linkStyle} onClick={() => openMobileNavigation()}>
+						<Link to='/blogs' style={linkStyle} onClick={() => openMobileNavigation()}>
 							Blogs
 						</Link>
 					</NavigationButton>
 					<NavigationButton>
 						<Link to='/users' style={linkStyle} onClick={() => openMobileNavigation()}>
+							Users
+						</Link>
+					</NavigationButton>
+				</NavigationBarMobile>
+
+				<NavigationBar>
+					<NavigationButton>
+						<Link to='/' style={linkStyle}>
+							Home
+						</Link>
+					</NavigationButton>
+					<NavigationButton>
+						<Link to='/addnewblog' style={linkStyle}>
+							New Blog
+						</Link>
+					</NavigationButton>
+					<NavigationButton>
+						<Link to='/blogs' style={linkStyle}>
+							Blogs
+						</Link>
+					</NavigationButton>
+					<NavigationButton>
+						<Link to='/users' style={linkStyle}>
 							Users
 						</Link>
 					</NavigationButton>
@@ -206,7 +198,7 @@ const Navigation = ({userCredentials, blogs, refreshBlogs, setUser, handleLogout
 						}
 					/>
 					<Route
-						path='/othersblogs'
+						path='/blogs'
 						element={
 							<DisplayBlogsFromOtherUsers
 								user={userCredentials}
@@ -219,36 +211,12 @@ const Navigation = ({userCredentials, blogs, refreshBlogs, setUser, handleLogout
 						}
 					/>
 					<Route path='/users' element={<Users users={otherUsers} othersBlogs={othersBlogs} handleErrors={handleErrors} />} />
-					<Route path='/users/:userid' element={<User user={matchUser} blogs={matchBlogs} />} />
+					<Route path='/users/:id' element={<User user={matchUser} blogs={matchBlogs} />} />
 					<Route
-						path='/myblogs/:blogid'
-						element={
-							<BlogView
-								blog={matchMyBlog}
-								user={userCredentials}
-								refreshBlogs={refreshBlogs}
-								handleErrors={handleErrors}
-								handleMessage={handleMessage}
-							/>
-						}
-					/>
-					<Route
-						path='/othersblogs/:blogid'
+						path='/blogs/:id'
 						element={
 							<BlogView
 								blog={matchBlog}
-								user={userCredentials}
-								refreshBlogs={refreshBlogs}
-								handleErrors={handleErrors}
-								handleMessage={handleMessage}
-							/>
-						}
-					/>
-					<Route
-						path='/users/:userid/blogs/:blogid'
-						element={
-							<BlogView
-								blog={matchUserBlog}
 								user={userCredentials}
 								refreshBlogs={refreshBlogs}
 								handleErrors={handleErrors}

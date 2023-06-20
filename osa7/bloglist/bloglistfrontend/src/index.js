@@ -6,19 +6,22 @@ import {NotificationContextProvider} from './reducers/NotificationReducer';
 import {UserAccountContextProvider} from './reducers/UserAccountReducer';
 import {UsersContextProvider} from './reducers/UsersReducer';
 import {BlogsContextProvider} from './reducers/BlogsReducer';
+import {PathContextProvider} from './reducers/PathReducer';
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<QueryClientProvider client={queryClient}>
-		<UserAccountContextProvider>
-			<UsersContextProvider>
-				<BlogsContextProvider>
-					<NotificationContextProvider>
-						<App />
-					</NotificationContextProvider>
-				</BlogsContextProvider>
-			</UsersContextProvider>
-		</UserAccountContextProvider>
+		<PathContextProvider>
+			<UserAccountContextProvider>
+				<UsersContextProvider>
+					<BlogsContextProvider>
+						<NotificationContextProvider>
+							<App />
+						</NotificationContextProvider>
+					</BlogsContextProvider>
+				</UsersContextProvider>
+			</UserAccountContextProvider>
+		</PathContextProvider>
 	</QueryClientProvider>
 );
