@@ -6,6 +6,9 @@ And set expiration for cookies if necessary.<br />
 Something to replace that. Also, could make it a bit simplier.<br />
 Other exercises are very straight forward.<br />
 
+There is some extra on Bloglist's UI/frontend, that was not on the list of exercices.<br />
+And the CSS for it is very minimal but technical.<br />
+
 # Bloglist's backend - PostgreSQL Database's table creation queries<br />
 You should first make PostgreSQL Database and tables with the queries.<br />
 Use it as cloud based for example at https://render.com<br />
