@@ -1,13 +1,16 @@
 # Comments<br/>
-Should update Bloglist's backend too. I do not like the token based authentication with expiration.<br />
+I should update Bloglist's backend. I do not like the token based authentication with expiration.<br />
+I think something with cookies would serve better purpouse for this kind of app or something similar.<br />
+And just check on the backend side, that you have correct credentials when needed.<br />
+And set expiration for cookies if necessary.<br />
 Something to replace that. Also, could make it a bit simplier.<br />
 Other exercises are very straight forward.<br />
 
+# Bloglist's backend - PostgreSQL Database's table creation queries<br />
 You should first make PostgreSQL Database and tables with the queries.<br />
 Use it as cloud based for example at https://render.com<br />
 Setup .env file with provided database url from the Render or you could do a local setup for the database also.<br />
 
-# Bloglist's backend - PostgreSQL Database's table creation queries<br />
 CREATE TABLE IF NOT EXISTS public.users<br />
 (<br />
     userid integer NOT NULL DEFAULT nextval('users_userid_seq'::regclass),<br />
