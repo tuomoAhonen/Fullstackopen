@@ -7,12 +7,13 @@
 /* You could do the same for StyledComponents.js, but I am not sure 
 	if there is any performance gains and global css should be assigned to every file */
 
-/* As like this, it could be fine, if it was rendered as server-side 
-	like in Next.js or React build on Node and rendered on React app, 
-	because most of the code is instantly rendered on the server and 
-	then sent to client's web browser to browse. So the initial loading 
-	might take little longer in time, when you type the web-url and land to the site. 
-	The loading time is depending on server's performance and network.
+/* I think I was wrong about this next statement, because if you divide your css as component based and then 
+	every component will have less to read from in the css-file and that means less initial time, 
+	because there is less to read per component even on server side rendering? --> "(As like this, it could be fine, 
+	if it was rendered as server-side like in Next.js or React build on Node and rendered on React app, 
+	because most of the code is instantly rendered on the server and then sent to client's web browser to browse. 
+	So the initial loading might take little longer in time, when you type the web-url and land to the site. 
+	The loading time is depending on server's performance and network.)"
 	
 	React's advantage would be it's scalability without huge server power/performance, 
 	because the performance comes mostly from user's device, but the downside of it, 
