@@ -6,3 +6,4 @@ Osa11 (CI/CD pipeline exercise by smartly.io): https://github.com/tuomoAhonen/fu
 
 Apps hosted and running on cloud (Free tier, so might take some time to load the page):<br />
 https://pokedex-exercise.onrender.com/ <br />
+https://full-stack-open-patientor.vercel.app/ (exercise 11.20 CI/CD) <br />
