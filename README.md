@@ -7,4 +7,4 @@ Osa12: https://github.com/tuomoAhonen/part12-containers-applications <br />
 
 Apps hosted and running on cloud (Free tier, so might take some time to load the page):<br />
 https://pokedex-exercise.onrender.com/ <br />
-https://full-stack-open-patientor.vercel.app/ (exercise 11.20 CI/CD, which is the Patientor-app from osa9) <br />
+https://full-stack-open-patientor.vercel.app/ (Part11, exercise 11.20 CI/CD, which is the Patientor-app from part9 or "osa9") <br />
