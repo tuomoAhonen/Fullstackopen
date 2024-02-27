@@ -1,0 +1,16 @@
+.books-tr {
+	background-color: darkslategrey;
+	color: #ffffff;
+}
+
+.books-tr:nth-child(even) {
+	background-color: #000000;
+}
+
+.books-tr th {
+	padding: 5px;
+}
+
+.books-tr td {
+	padding: 5px;
+}

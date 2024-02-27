@@ -1,0 +1,16 @@
+.recommendations-tr {
+	background-color: darkslategrey;
+	color: #ffffff;
+}
+
+.recommendations-tr:nth-child(even) {
+	background-color: #000000;
+}
+
+.recommendations-tr th {
+	padding: 5px;
+}
+
+.recommendations-tr td {
+	padding: 5px;
+}

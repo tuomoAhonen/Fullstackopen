@@ -1,0 +1,20 @@
+.authors-tr {
+	background-color: darkslategrey;
+	color: #ffffff;
+}
+
+.authors-tr:nth-child(even) {
+	background-color: #000000;
+}
+
+.authors-tr th {
+	padding: 5px;
+}
+
+.authors-tr td {
+	padding: 5px;
+}
+
+#authorEditInput::placeholder {
+	color: #a9a9a9;
+}

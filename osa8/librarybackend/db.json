@@ -1,0 +1,241 @@
+{
+  "authors": [
+    {
+      "name": "Robert Martin",
+      "id": "afa51ab0-344d-11e9-a414-719c6709cf3e",
+      "born": 1952
+    },
+    {
+      "name": "Martin Fowler",
+      "id": "afa5b6f0-344d-11e9-a414-719c6709cf3e",
+      "born": 1963
+    },
+    {
+      "name": "Fyodor Dostoevsky",
+      "id": "afa5b6f1-344d-11e9-a414-719c6709cf3e",
+      "born": 1821
+    },
+    {
+      "name": "Joshua Kerievsky",
+      "id": "afa5b6f2-344d-11e9-a414-719c6709cf3e",
+      "born": null
+    },
+    {
+      "name": "Sandi Metz",
+      "id": "afa5b6f3-344d-11e9-a414-719c6709cf3e",
+      "born": null
+    },
+    {
+      "name": "testi",
+      "born": 2000,
+      "id": "8df2d58a-046a-409d-b1b1-abed6d148fa1"
+    },
+    {
+      "name": "testi2",
+      "born": 2001,
+      "id": "2a103322-71d8-4f2b-984b-5d3c00a1f73f"
+    },
+    {
+      "name": "testi3",
+      "born": 2010,
+      "id": "46f17ac9-efe3-474e-8404-04ee99a8cce6"
+    },
+    {
+      "name": "testi4",
+      "born": 2012,
+      "id": "bd0d4d40-367a-4073-8d0b-a64a66b2c7ee"
+    },
+    {
+      "name": "testi5",
+      "born": 2015,
+      "id": "4438615a-7c9e-4306-8bae-6a4dd2305153"
+    },
+    {
+      "name": "testi6",
+      "born": 2016,
+      "id": "583fc1c8-faf8-4032-b3df-bb9fcf9cfcfd"
+    },
+    {
+      "name": "testi7",
+      "born": 2017,
+      "id": "6b2267b9-a6be-43b2-866f-59f7eb004675"
+    },
+    {
+      "name": "testi8",
+      "born": 2018,
+      "id": "65c642c2-769b-473a-9c23-21a449fee101"
+    },
+    {
+      "name": "testi9",
+      "born": 2019,
+      "id": "499aa5ba-7412-412d-85d2-cd19360e8995"
+    },
+    {
+      "name": "testi20",
+      "born": 2020,
+      "id": "1212cadf-c64f-4ad3-babf-fd0d7ef540bf"
+    },
+    {
+      "name": "testi21",
+      "born": 2021,
+      "id": "7390773f-0a96-477a-bb0c-d505124081ba"
+    },
+    {
+      "name": "testi22",
+      "born": 2021,
+      "id": "f8fb92bc-8600-4f36-aca8-afb59c0ce68d"
+    },
+    {
+      "name": "Testaaja Vaan",
+      "id": "30b9b23a-d2b5-4f26-abc7-c35dfb0a64f3"
+    }
+  ],
+  "books": [
+    {
+      "title": "Clean Code",
+      "published": 2008,
+      "author": {
+        "name": "Robert Martin",
+        "id": "afa51ab0-344d-11e9-a414-719c6709cf3e",
+        "born": 1952
+      },
+      "id": "afa5b6f4-344d-11e9-a414-719c6709cf3e",
+      "genres": [
+        "refactoring"
+      ]
+    },
+    {
+      "title": "Agile software development",
+      "published": 2002,
+      "author": {
+        "name": "Robert Martin",
+        "id": "afa51ab0-344d-11e9-a414-719c6709cf3e",
+        "born": 1952
+      },
+      "id": "afa5b6f5-344d-11e9-a414-719c6709cf3e",
+      "genres": [
+        "agile",
+        "patterns",
+        "design"
+      ]
+    },
+    {
+      "title": "Refactoring, edition 2",
+      "published": 2018,
+      "author": {
+        "name": "Martin Fowler",
+        "id": "afa5b6f0-344d-11e9-a414-719c6709cf3e",
+        "born": 1963
+      },
+      "id": "afa5de00-344d-11e9-a414-719c6709cf3e",
+      "genres": [
+        "refactoring"
+      ]
+    },
+    {
+      "title": "Refactoring to patterns",
+      "published": 2008,
+      "author": {
+        "name": "Joshua Kerievsky",
+        "id": "afa5b6f2-344d-11e9-a414-719c6709cf3e",
+        "born": null
+      },
+      "id": "afa5de01-344d-11e9-a414-719c6709cf3e",
+      "genres": [
+        "refactoring",
+        "patterns"
+      ]
+    },
+    {
+      "title": "Practical Object-Oriented Design, An Agile Primer Using Ruby",
+      "published": 2012,
+      "author": {
+        "name": "Sandi Metz",
+        "id": "afa5b6f3-344d-11e9-a414-719c6709cf3e",
+        "born": null
+      },
+      "id": "afa5de02-344d-11e9-a414-719c6709cf3e",
+      "genres": [
+        "refactoring",
+        "design"
+      ]
+    },
+    {
+      "title": "Crime and punishment",
+      "published": 1866,
+      "author": {
+        "name": "Fyodor Dostoevsky",
+        "id": "afa5b6f1-344d-11e9-a414-719c6709cf3e",
+        "born": 1821
+      },
+      "id": "afa5de03-344d-11e9-a414-719c6709cf3e",
+      "genres": [
+        "classic",
+        "crime"
+      ]
+    },
+    {
+      "title": "The Demon",
+      "published": 1872,
+      "author": {
+        "name": "Fyodor Dostoevsky",
+        "id": "afa5b6f1-344d-11e9-a414-719c6709cf3e",
+        "born": 1821
+      },
+      "id": "afa5de04-344d-11e9-a414-719c6709cf3e",
+      "genres": [
+        "classic",
+        "revolution"
+      ]
+    },
+    {
+      "title": "NoSQL Distilled",
+      "published": 2012,
+      "author": {
+        "name": "Martin Fowler",
+        "id": "afa5b6f0-344d-11e9-a414-719c6709cf3e",
+        "born": 1963
+      },
+      "genres": [
+        "database",
+        "nosql"
+      ],
+      "id": "46670770-bc4b-4a84-b19d-e842ae6129c6"
+    },
+    {
+      "title": "Learn from my mistakes",
+      "published": 2023,
+      "author": {
+        "name": "Testaaja Vaan",
+        "id": "30b9b23a-d2b5-4f26-abc7-c35dfb0a64f3"
+      },
+      "genres": [
+        "database",
+        "sql",
+        "node",
+        "graphQL",
+        "apollo-server",
+        "json-server"
+      ],
+      "id": "555e72c9-accb-41d2-8219-0a87dd47f724"
+    },
+    {
+      "title": "NoSQL Distilled 2023, best practices",
+      "published": 2023,
+      "author": {
+        "name": "Martin Fowler",
+        "id": "afa5b6f0-344d-11e9-a414-719c6709cf3e",
+        "born": 1963
+      },
+      "genres": [
+        "database",
+        "sql",
+        "node",
+        "graphQL",
+        "apollo-server",
+        "json-server"
+      ],
+      "id": "a000bc48-70c0-41d4-b1bf-6096b952c511"
+    }
+  ]
+}

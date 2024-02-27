@@ -1,0 +1,95 @@
+{
+  "users": [
+    {
+      "favoriteGenre": "database",
+      "id": 0,
+      "name": "Essi Esimerkki",
+      "passwordhash": "123k231k-123k123jj123-sdfsdfsdf-123sdffdgoi23jds-456hsdfu23oas",
+      "username": "esimerkkiuser123"
+    },
+    {
+      "favoriteGenre": "crime",
+      "id": 1,
+      "name": "Esa Testaaja",
+      "passwordhash": "$2b$12$MOflA9Hkef2Zucw6pNAgju.ZFR3RmA1vB0TcylTR/56sgla8m4WuK",
+      "username": "testaaja"
+    },
+    {
+      "favoriteGenre": "sql",
+      "id": 2,
+      "name": "Esa Testaaja",
+      "passwordhash": "$2b$12$AG/pV3iRjq9y./nQ3p8RUO8oQYEkx.0nEa4baNHO94p4hhfwPhGO2",
+      "username": "testaaja2"
+    },
+    {
+      "favoriteGenre": "testi",
+      "id": 3,
+      "name": "Esa Testaaja",
+      "passwordhash": "$2b$12$6lhbbk4Qempl0OcJ9GD5c.ytjv448asiVz6jmVrIhgUIttTeS710K",
+      "username": "testaaja3"
+    },
+    {
+      "favoriteGenre": "testi",
+      "id": 4,
+      "name": "Esa Testaaja",
+      "passwordhash": "$2b$12$42y3ISfkWYBJU5LArujGwe9qkKnRmuwCbHJ8oSzc3qEPTAOqZdfY6",
+      "username": "testaaja4"
+    },
+    {
+      "favoriteGenre": "testi",
+      "id": 5,
+      "name": "Testi Testaaja",
+      "passwordhash": "$2b$12$0OQ/Sa0ew.GodprjrRKZeO2UXdVFC4rRNoYR9WVKPk2TlQN.CxgcC",
+      "username": "newtester"
+    },
+    {
+      "favoriteGenre": "testi",
+      "id": 6,
+      "name": "Testiiii Testaajaaa",
+      "passwordhash": "$2b$12$hJDqkGUay4mCNkZ0epUJyeP84q0zRK3bFhmHPwZ9vQk.LDAdS1S4y",
+      "username": "newtesterrreeer"
+    },
+    {
+      "favoriteGenre": "testi",
+      "id": 7,
+      "name": "Matilda Kuusi",
+      "passwordhash": "$2b$12$clXkpw0OPZ2rx5TSCqx7U.tXF8Xfzxxxm6gcrrQHG/GLNOZF.00.y",
+      "username": "Matku"
+    },
+    {
+      "favoriteGenre": "testi",
+      "id": 8,
+      "name": "New New New",
+      "passwordhash": "$2b$12$TPE1swvGLmq7FBopyHXgd.13RG15MevgnSllJyU0tXwoCGnaGFRXy",
+      "username": "newnew"
+    },
+    {
+      "favoriteGenre": "testi",
+      "id": 9,
+      "name": "Testi Sukunimi",
+      "passwordhash": "$2b$12$CpCRYydIQ.2HxkO7ZNh59ucviYoNboFmQT8hTJNDzMUdbQgIZVPqW",
+      "username": "testsuk"
+    },
+    {
+      "favoriteGenre": "testi",
+      "id": 10,
+      "name": "Testi kayttaja",
+      "passwordhash": "$2b$12$XZ0zuu6AgDc4MS6svUyKTuV1uUiXt.yBwL8cnvzorsx8sWYEr9.sa",
+      "username": "testkay"
+    },
+    {
+      "favoriteGenre": "testi",
+      "id": 11,
+      "name": "Oh my",
+      "passwordhash": "$2b$12$MxzC5i8GLZBxk04c1yaJoOLiDHlFJV9ByoLNXIArgV9nCvitPh4ju",
+      "username": "ohmy"
+    },
+    {
+      "favoriteGenre": "",
+      "id": 12,
+      "name": "Yes Please",
+      "passwordhash": "$2b$12$TraHHas3PBC3VQvIs7rLyencT7QA3Mj7qdIiTVQCBg9DnKd1Rcd2K",
+      "username": "yespls"
+    }
+  ]
+}
